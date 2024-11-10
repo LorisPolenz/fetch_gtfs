@@ -5,10 +5,10 @@ FROM python:3.11-slim
 WORKDIR /app
 
 # Copy the script to the container
-COPY main .
+COPY main.py .
 
 # Install dependencies
 RUN pip install --no-cache-dir minio requests
 
 # Command to run the Python script
-CMD ["python", "main"]
+CMD ["python", "main.py"]
