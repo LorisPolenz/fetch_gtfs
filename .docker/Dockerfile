@@ -6,9 +6,10 @@ WORKDIR /app
 
 # Copy the script to the container
 COPY main.py .
+COPY requirements.txt .
 
 # Install dependencies
-RUN pip install --no-cache-dir minio requests
+RUN pip install --no-cache-dir  -r requirements.txt
 
 # Command to run the Python script
 CMD ["python", "main.py"]
