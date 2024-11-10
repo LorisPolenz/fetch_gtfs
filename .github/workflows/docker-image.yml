@@ -17,8 +17,12 @@ jobs:
 
     # Build the Docker image
     - name: Build the Docker image
-      run: docker build . --file .docker/Dockerfile --tag ghcr.io/${{ github.repository_owner }}/fetch-gtfs:latest
+      run: |
+        REPO_OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
+        docker build . --file .docker/Dockerfile --tag ghcr.io/$REPO_OWNER/fetch-gtfs:latest
 
     # Push the image to GitHub Container Registry
     - name: Push the Docker image
-      run: docker push ghcr.io/${{ github.repository_owner }}/fetch-gtfs:latest
+      run: |
+        REPO_OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
+        docker push ghcr.io/$REPO_OWNER/fetch-gtfs:latest
