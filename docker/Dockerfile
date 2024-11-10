@@ -1,0 +1,14 @@
+# Use an official Python runtime as a parent image
+FROM python:3.11-slim
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the script to the container
+COPY main .
+
+# Install dependencies
+RUN pip install --no-cache-dir minio requests
+
+# Command to run the Python script
+CMD ["python", "main"]
