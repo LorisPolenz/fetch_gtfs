@@ -35,7 +35,7 @@ compressed_data.seek(0)
 
 # Upload the data to S3
 s3_client.put_object(
-    bucket_name=os.getenv('S3_BUCKET'),
+    bucket_name=os.getenv('S3_BUCKET_GTFS_RT'),
     object_name=f"{TIMESTAMP}_gtfs-rt.json.gz",
     data=compressed_data,
     length=compressed_data.getbuffer().nbytes,
