@@ -6,7 +6,7 @@ from minio import Minio
 from datetime import datetime
 
 TIMESTAMP = round(datetime.now().timestamp())
-REQUEST_URL = 'https://api.opentransportdata.swiss/gtfsrt2020'
+REQUEST_URL = 'https://api.opentransportdata.swiss/la/gtfs-rt'
 PARAMS = {
     "format": "json",
 }
